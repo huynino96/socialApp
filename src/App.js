@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
-import {ThemeProvider as MuiThemeProvider} from "@material-ui/core/styles";
+import { ThemeProvider as MuiThemeProvider } from "@material-ui/core/styles";
 import createMuiTheme from "@material-ui/core/styles/createMuiTheme";
-import jwtDecode from 'jwt-decode';
-
+import jwtDecode from "jwt-decode";
 
 // Pages
 import Home from "./pages/Home";
@@ -13,43 +12,42 @@ import Signup from "./pages/Signup";
 
 // Components
 import Navbar from "./components/Navbar";
-import AuthRoute from './ulti/AuthRoute';
+import AuthRoute from "./ulti/AuthRoute";
 
 // Redux
-import {Provider} from 'react-redux';
-import store from './redux/reducers/store';
-
+import { Provider } from "react-redux";
+import store from "./redux/store";
 
 const theme = createMuiTheme({
   palette: {
     primary: {
-      light: '#33c9dc',
-      main: '#00bcd4',
-      dark: '#008394',
-      constrastText: '#fff'
+      light: "#33c9dc",
+      main: "#00bcd4",
+      dark: "#008394",
+      constrastText: "#fff",
     },
     secondary: {
-      light: '#ff6333',
-      main: '#ff3d00',
-      dark: '#b22a00',
-      contrastText: '#fff'
-    }
+      light: "#ff6333",
+      main: "#ff3d00",
+      dark: "#b22a00",
+      contrastText: "#fff",
+    },
   },
   typography: {
-    useNextVariants: true
+    useNextVariants: true,
   },
-  
 });
 
 let authenticated;
 const token = localStorage.FBIdToken;
-if(token){
+if (token) {
   const decodedToken = jwtDecode(token);
-  if(decodedToken.exp * 1000 < Date.now()){
-    window.location.href='/login';
+  if (decodedToken.exp * 1000 < Date.now()) {
+    window.location.href = "/login";
     authenticated = false;
+  } else {
+    authenticated = true;
   }
-  else { authenticated = true;}
 }
 
 class App extends Component {
@@ -62,14 +60,22 @@ class App extends Component {
               <Navbar />
               <Switch>
                 <Route exact path="/" component={Home} />
-                <AuthRoute exact path="/Login" component={Login} autheticated={authenticated}/>
-                <AuthRoute exact path="/Signup" component={Signup} autheticated={authenticated}/>
+                <AuthRoute
+                  exact
+                  path="/Login"
+                  component={Login}
+                  autheticated={authenticated}
+                />
+                <AuthRoute
+                  exact
+                  path="/Signup"
+                  component={Signup}
+                  autheticated={authenticated}
+                />
               </Switch>
             </div>
           </Router>
-       
         </Provider>
-       
       </MuiThemeProvider>
     );
   }
