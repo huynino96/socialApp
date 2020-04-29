@@ -1,17 +1,23 @@
-This is the code base for the React app for my [Full Stack React & Firebase series](https://www.youtube.com/watch?v=RkBfu-W7tt0&list=PLMhAeHCz8S38ryyeMiBPPUnFAiWnoPvWP)
-
 ## 1: API Base URL
 
-Add https://europe-west1-socialape-d081e.cloudfunctions.net/api as the 'proxy' value in package.json
+Add https://asia-east2-socialapp-32fb9.cloudfunctions.net/api as the 'proxy' value in package.json
 
 ## 2: Install packages
 
-run `npm instll`
+run `npm install` to get all the latest package. npm install must the run in both front end and functions(backend) folder to get all necessary packages
 
 ## 3: Run project
 
-run `npm start`
+run `npm start` to test the front end
 
 ## 4: Open it
 
 go to [http://localhost:3000](http://localhost:3000)
+
+## 5: Test API
+
+cd to functions folder
+run `firebase serve` to test the endpoint url
+some functions are require to be deployed defore testing. Use the API base above to test.
+
+Note: The `firebase serve` cli will notify what functions require to use API Base Url
