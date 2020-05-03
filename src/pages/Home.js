@@ -21,14 +21,20 @@ class home extends Component {
       <ScreamSkeleton />
     );
     return (
-      <Grid container spacing={16}>
-        <Grid item sm={8} xs={12}>
+      <div>
+         <Profile />
+         <br/>
+         <h2><center>Latest Posts</center></h2>
           {recentScreamsMarkup}
-        </Grid>
-        <Grid item sm={4} xs={12}>
-          <Profile />
-        </Grid>
-      </Grid>
+      </div>
+      // <Grid container spacing={16}>
+      //   {/* <Grid item sm={8} xs={12}> */}
+       
+      //   {/* </Grid> */}
+      //   {/* <Grid item sm={4} xs={12}> */}
+          
+      //   {/* </Grid> */}
+      // </Grid>
     );
   }
 }

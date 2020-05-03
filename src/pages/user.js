@@ -39,7 +39,7 @@ class user extends Component {
     const screamsMarkup = loading ? (
       <ScreamSkeleton />
     ) : screams === null ? (
-      <p>No screams from this user</p>
+      <p>No posts from this user</p>
     ) : !screamIdParam ? (
       screams.map((scream) => <Scream key={scream.screamId} scream={scream} />)
     ) : (
@@ -52,9 +52,6 @@ class user extends Component {
 
     return (
       <Grid container spacing={16}>
-        <Grid item sm={8} xs={12}>
-          {screamsMarkup}
-        </Grid>
         <Grid item sm={4} xs={12}>
           {this.state.profile === null ? (
             <ProfileSkeleton />
@@ -62,6 +59,12 @@ class user extends Component {
             <StaticProfile profile={this.state.profile} />
           )}
         </Grid>
+        
+        <Grid item sm={8} xs={12}>
+          <h2><center>Your Posts</center></h2>
+          {screamsMarkup}
+        </Grid>
+       
       </Grid>
     );
   }

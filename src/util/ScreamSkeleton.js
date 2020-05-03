@@ -57,9 +57,11 @@ const ScreamSkeleton = (props) => {
       <CardMedia className={classes.cover} image={NoImg} />
       <CardContent className={classes.cardContent}>
         <div className={classes.handle} />
-        <div className={classes.date} />
+        <br/> 
+        <div className={classes.date} /> 
         <div className={classes.fullLine} />
         <div className={classes.fullLine} />
+        <br/>
         <div className={classes.halfLine} />
       </CardContent>
     </Card>

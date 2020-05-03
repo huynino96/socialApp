@@ -24,7 +24,7 @@ import axios from 'axios';
 const theme = createMuiTheme(themeObject);
 
 axios.defaults.baseURL =
-  ' https://asia-east2-socialapp-32fb9.cloudfunctions.net/api';
+  'https://asia-east2-socialapp-32fb9.cloudfunctions.net/api';
 
 const token = localStorage.FBIdToken;
 if (token) {

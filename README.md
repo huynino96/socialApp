@@ -21,3 +21,9 @@ run `firebase serve` to test the endpoint url
 some functions are require to be deployed defore testing. Use the API base above to test.
 
 Note: The `firebase serve` cli will notify what functions require to use API Base Url
+
+## 6: Demo App on AWS S3 and Amplify
+
+http://demoapp-socialapp.s3-website-ap-southeast-1.amazonaws.com
+
+with SSL Certificate: https://dev323.d1olj1w8dc398e.amplifyapp.com

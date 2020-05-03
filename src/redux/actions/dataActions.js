@@ -14,7 +14,7 @@ import {
 } from '../types';
 import axios from 'axios';
 
-// Get all screams
+// Get all posts
 export const getScreams = () => (dispatch) => {
   dispatch({ type: LOADING_DATA });
   axios
@@ -45,7 +45,7 @@ export const getScream = (screamId) => (dispatch) => {
     })
     .catch((err) => console.log(err));
 };
-// Post a scream
+// Post a Caption
 export const postScream = (newScream) => (dispatch) => {
   dispatch({ type: LOADING_UI });
   axios
@@ -76,7 +76,7 @@ export const likeScream = (screamId) => (dispatch) => {
     })
     .catch((err) => console.log(err));
 };
-// Unlike a scream
+// Unlike a post
 export const unlikeScream = (screamId) => (dispatch) => {
   axios
     .get(`/scream/${screamId}/unlike`)
@@ -88,7 +88,7 @@ export const unlikeScream = (screamId) => (dispatch) => {
     })
     .catch((err) => console.log(err));
 };
-// Submit a comment
+// Submit a comment 
 export const submitComment = (screamId, commentData) => (dispatch) => {
   axios
     .post(`/scream/${screamId}/comment`, commentData)

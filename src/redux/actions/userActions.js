@@ -27,6 +27,7 @@ export const loginUser = (userData, history) => (dispatch) => {
     });
 };
 
+// Signup functions
 export const signupUser = (newUserData, history) => (dispatch) => {
   dispatch({ type: LOADING_UI });
   axios
@@ -64,6 +65,7 @@ export const getUserData = () => (dispatch) => {
     .catch((err) => console.log(err));
 };
 
+// Upload Profile Image
 export const uploadImage = (formData) => (dispatch) => {
   dispatch({ type: LOADING_USER });
   axios
@@ -84,6 +86,7 @@ export const editUserDetails = (userDetails) => (dispatch) => {
     .catch((err) => console.log(err));
 };
 
+// Mark Notification as read
 export const markNotificationsRead = (notificationIds) => (dispatch) => {
   axios
     .post('/notifications', notificationIds)

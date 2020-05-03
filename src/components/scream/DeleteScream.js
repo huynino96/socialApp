@@ -17,7 +17,7 @@ const styles = {
   deleteButton: {
     position: 'absolute',
     left: '90%',
-    top: '10%'
+    top: '4%'
   }
 };
 
@@ -41,7 +41,7 @@ class DeleteScream extends Component {
     return (
       <Fragment>
         <MyButton
-          tip="Delete Scream"
+          tip="Delete Post"
           onClick={this.handleOpen}
           btnClassName={classes.deleteButton}
         >

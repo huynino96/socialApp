@@ -5,6 +5,8 @@
   "dependencies": {
     "@material-ui/core": "^3.9.4",
     "@material-ui/icons": "^3.0.2",
+    "aws-amplify": "^3.0.10",
+    "aws-amplify-react": "^4.1.9",
     "axios": "^0.18.1",
     "dayjs": "^1.8.25",
     "jwt-decode": "^2.2.0",
