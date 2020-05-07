@@ -103,6 +103,9 @@ dist
 # TernJS port file
 .tern-port
 
+#Ignore Firebase APIkey
+functions/util/config.js
+
 #amplify
 amplify/\#current-cloud-backend
 amplify/.config/local-*
@@ -118,6 +121,3 @@ amplifyconfiguration.json
 amplify-build-config.json
 amplify-gradle-config.json
 amplifyxc.config
-
-#Ignore Firebase APIkey
-functions/util/config.js

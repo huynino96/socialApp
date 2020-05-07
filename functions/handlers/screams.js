@@ -1,3 +1,4 @@
+/* eslint-disable promise/no-nesting */
 /* eslint-disable promise/always-return */
 const { db } = require('../util/admin');
 
