@@ -2,6 +2,7 @@
 /* eslint-disable promise/always-return */
 const { db } = require('../util/admin');
 
+// Get all Posts
 exports.getAllScreams = (req, res) => {
   db.collection('screams')
     .orderBy('createdAt', 'desc')
@@ -27,6 +28,7 @@ exports.getAllScreams = (req, res) => {
     });
 };
 
+// Create a New Post
 exports.postOneScream = (req, res) => {
   if (req.body.body.trim() === '') {
     return res.status(400).json({ body: 'Body must not be empty' });
@@ -53,7 +55,9 @@ exports.postOneScream = (req, res) => {
       console.error(err);
     });
 };
-// Fetch one scream
+
+
+// Fetch one Post
 exports.getScream = (req, res) => {
   let screamData = {};
   db.doc(`/screams/${req.params.screamId}`)
@@ -82,7 +86,9 @@ exports.getScream = (req, res) => {
       res.status(500).json({ error: err.code });
     });
 };
-// Comment on a comment
+
+
+// Comment on a Post
 exports.commentOnScream = (req, res) => {
   if (req.body.body.trim() === '')
     return res.status(400).json({ comment: 'Must not be empty' });
@@ -115,7 +121,9 @@ exports.commentOnScream = (req, res) => {
       res.status(500).json({ error: 'Something went wrong' });
     });
 };
-// Like a scream
+
+
+// Like a Post
 exports.likeScream = (req, res) => {
   const likeDocument = db
     .collection('likes')
@@ -163,6 +171,7 @@ exports.likeScream = (req, res) => {
     });
 };
 
+// Unlike a Post
 exports.unlikeScream = (req, res) => {
   const likeDocument = db
     .collection('likes')
@@ -206,7 +215,9 @@ exports.unlikeScream = (req, res) => {
       res.status(500).json({ error: err.code });
     });
 };
-// Delete a scream
+
+
+// Delete a Post
 exports.deleteScream = (req, res) => {
   const document = db.doc(`/screams/${req.params.screamId}`);
   document

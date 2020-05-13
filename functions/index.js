@@ -27,7 +27,7 @@ const {
   markNotificationsRead
 } = require('./handlers/users');
 
-// Scream routes
+// Posts API
 app.get('/screams', getAllScreams);
 app.post('/scream', FBAuth, postOneScream);
 app.get('/scream/:screamId', getScream);
@@ -36,7 +36,7 @@ app.get('/scream/:screamId/like', FBAuth, likeScream);
 app.get('/scream/:screamId/unlike', FBAuth, unlikeScream);
 app.post('/scream/:screamId/comment', FBAuth, commentOnScream);
 
-// users routes
+// User API
 app.post('/signup', signup);
 app.post('/login', login);
 app.post('/user/image', FBAuth, uploadImage);
@@ -47,6 +47,7 @@ app.post('/notifications', FBAuth, markNotificationsRead);
 
 exports.api = functions.region('asia-east2').https.onRequest(app);
 
+// Create a Notification when someone like your posts
 exports.createNotificationOnLike = functions
   .region('asia-east2')
   .firestore.document('likes/{id}')
@@ -71,6 +72,8 @@ exports.createNotificationOnLike = functions
       })
       .catch((err) => console.error(err));
   });
+
+  // Delete Noti when someone Unlike your Post
 exports.deleteNotificationOnUnLike = functions
   .region('asia-east2')
   .firestore.document('likes/{id}')
@@ -83,6 +86,8 @@ exports.deleteNotificationOnUnLike = functions
         return;
       });
   });
+
+  // Create Noti when someone comment on your post
 exports.createNotificationOnComment = functions
   .region('asia-east2')
   .firestore.document('comments/{id}')
@@ -111,6 +116,7 @@ exports.createNotificationOnComment = functions
       });
   });
 
+  // Change Image function
 exports.onUserImageChange = functions
   .region('asia-east2')
   .firestore.document('/users/{userId}')
@@ -134,6 +140,7 @@ exports.onUserImageChange = functions
     } else return true;
   });
 
+// Delete a Post functions
 exports.onScreamDelete = functions
   .region('asia-east2')
   .firestore.document('/screams/{screamId}')
